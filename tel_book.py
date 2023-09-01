@@ -35,8 +35,17 @@ def delete_data (num_of_line_for_del):
     with open ('base.txt', 'w', encoding = 'utf-8') as data:
         for i, item in enumerate (temp_data):
             data.write (item)
+    message = "запись создана"
+    return message
+
+
+def change_data (num_of_line_for_change, new_data):
+    temp_data = []
     with open ('base.txt', 'r', encoding = 'utf-8') as data:
-        for line in data:
-            print(line)
+        temp_data = data.readlines()
+    temp_data[num_of_line_for_change - 1] = new_data + '\n'
+    with open ('base.txt', 'w', encoding = 'utf-8') as data:
+        for i, item in enumerate (temp_data):
+            data.write (item)
     message = "запись создана"
     return message
